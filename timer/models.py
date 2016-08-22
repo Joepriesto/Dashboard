@@ -8,7 +8,7 @@ from django.db import models
 class Batch(models.Model):
     """docstring for Batch"""
     def __str__(self):
-        return self.lot_number
+        return str(self.lot_number)
 
     lot_number = models.PositiveIntegerField(default=0)
     start_date = models.DateTimeField('date started')
