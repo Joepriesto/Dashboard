@@ -73,12 +73,19 @@ WSGI_APPLICATION = 'Dashboard.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+# If statement for development only!!!!!!!!!!!!!!!
+
+if os.name == 'nt':
+    db_name = os.path.join("C:\\", "Users", "jp0414", "Documents", "Dashboard", "Dashboard", "Dashboard.db")
+else:
+    db_name = '/Applications/djangostack-1.10-0/apps/django/django_projects/Dashboard/Dashboard/Dashboard.db'
+
 
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Applications/djangostack-1.10-0/apps/django/django_projects/Dashboard/Dashboard/Dashboard.db',
+        'NAME': db_name,
     }
 }
 
