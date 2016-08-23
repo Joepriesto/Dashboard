@@ -1,11 +1,11 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.http import HttpResponseRedirect
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.urls import reverse
 from django.views import generic
 
 # Create your views here.
-from .models import Batch, runPeriod
+from .models import Batch
 
 
 class IndexView(generic.ListView):
@@ -25,6 +25,14 @@ class DetailView(generic.DetailView):
 class RunningView(generic.DetailView):
     model = Batch
     template_name = 'timer/running.html'
+    duration = timedelta()
+
+    def get_object(self):
+        object = super(RunningView, self).get_object()
+
+        object.duration = datetime.now() - object.start_time.replace(tzinfo=None)
+        object.save()
+        return object
 
 
 """def index(request):
@@ -40,8 +48,11 @@ def detail(request, lot_number):
 
 def start(request, lot_number):
     batch = get_object_or_404(Batch, lot_number=lot_number)
-    run = runPeriod(start_time=datetime.now(), batch=batch)
-    return HttpResponseRedirect(reverse('timer:running', args=(batch.lot_number,)))
+    if batch.start_time == 0:
+        batch.start_time=datetime.now()
+        batch.save()
+
+    return HttpResponseRedirect(reverse('timer:running', args=(batch.id,)))
 
 """def running(request, lot_number):
     batch = get_object_or_404(Batch, lot_number=lot_number)
