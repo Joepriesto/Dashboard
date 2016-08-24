@@ -12,6 +12,8 @@ urlpatterns = [
 
     url(r'^(?P<pk>[0-9]+)/running/$', views.RunningView.as_view(), name='running'),
 
+    url(r'^new/$', views.CreateView.as_view(), name='new'),
+
 
 
 ]

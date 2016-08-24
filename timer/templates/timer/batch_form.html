@@ -2,7 +2,6 @@
 <html lang="en">
 {% load static %}
   <head>
-  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Run Timer for Packing Room</title>
+    <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static '/timer/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -20,11 +19,11 @@
     <link href="{% static '/timer/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static '/timer/css/jumbotron.css' %}" rel="stylesheet">
+    <link href="{% static '/timer/css/starter-template.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{% static '/timer/js/ie-emulation-modes-warning.js' %}"></script>
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -44,58 +43,29 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Run Timer</a>
+          <a class="navbar-brand" href="#">Project name</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Run Timer Dashboard</h1>
-        <p>To start Create a batch below, or look at the details of a previous Batch below.</p>
-        <p><a class="btn btn-primary btn-lg" href="{% url 'timer:new' %}" role="button">Create a Batch &raquo;</a></p>
-      </div>
-    </div>
-
     <div class="container">
-      <!-- Example row of columns -->
-      {% if latest_lot_list %}
-      <div class="row">
-      {% for Batch in latest_lot_list %}
-        <div class="col-md-4">
-        
-          <h2>{{ Batch.lot_number }}</h2>
-          <p>{{ Batch.start_date }} </p>
-          <p><a class="btn btn-default" href="{% url 'timer:detail' Batch.pk %}" role="button">View details &raquo;</a></p>
-        </div>
-      {% endfor %}
-      {% else %}
-        <div class="col-md-4">
-          <h2>No Lots Available</h2>
-          <p>There appear to be no lots in the database! </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-      {% endif %}
+
+      <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <form action="" method="post">{% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Save" class="btn btn-primary" />
       </div>
 
-      <hr>
-
-      <footer>
-        <p>&copy; 2016 Hologic Ltd.</p>
-      </footer>
-    </div> <!-- /container -->
+    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -105,6 +75,6 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="{% static '/timer/js/bootstrap.min.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{% static '/timer/js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

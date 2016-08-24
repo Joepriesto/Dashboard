@@ -14,7 +14,16 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five Lots"""
-        return Batch.objects.order_by('-start_date')[:5]
+        return Batch.objects.order_by('-start_date')[:3]
+
+class CreateView(generic.CreateView):
+    model = Batch
+    fields = ['lot_number']
+
+    def post(self, request, *args, **kwargs):
+        self.object.start_date = datetime.now()
+        print(self.get_form())
+        return super(CreateView, self).post(request, *args, **kwargs)
 
 
 class DetailView(generic.DetailView):
