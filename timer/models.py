@@ -12,9 +12,12 @@ class Batch(models.Model):
         return str(self.lot_number)
 
     lot_number = models.PositiveIntegerField(default=0)
-    start_date = models.DateTimeField('date started')
-    start_time = models.DateTimeField('start time')
+    start_date = models.DateTimeField('date started', auto_now_add=True)
+    start_time = models.DateTimeField('start time', auto_now_add=True)
     duration = models.DurationField('duration', default=timedelta(0))
+
+    def get_absolute_url(self):
+        return "/timer/%s/" % self.id
 # class runPeriod(models.Model):
 #     def __str__(self):
 #         return self.batch

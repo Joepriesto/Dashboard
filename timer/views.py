@@ -19,11 +19,13 @@ class IndexView(generic.ListView):
 class CreateView(generic.CreateView):
     model = Batch
     fields = ['lot_number']
+    #success_url = 'timer/detail'
 
-    def post(self, request, *args, **kwargs):
-        self.object.start_date = datetime.now()
-        print(self.get_form())
-        return super(CreateView, self).post(request, *args, **kwargs)
+
+    # def post(self, request, *args, **kwargs):
+    #     self.object.start_date = datetime.now()
+    #     print(self.get_form())
+    #     return super(CreateView, self).post(request, *args, **kwargs)
 
 
 class DetailView(generic.DetailView):
