@@ -167,8 +167,8 @@
 			"file": "urls.py",
 			"settings":
 			{
-				"buffer_size": 899,
-				"line_ending": "Unix"
+				"buffer_size": 991,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -218,6 +218,10 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/jp0414/Documents/Dashboard"
+	],
 	"file_history":
 	[
 		"/Applications/djangostack-1.10-0/apps/django/django_projects/Dashboard/Dashboard/settings.py",
@@ -298,7 +302,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 899,
+						"buffer_size": 991,
 						"regions":
 						{
 						},

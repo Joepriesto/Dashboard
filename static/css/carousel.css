@@ -33,6 +33,17 @@ body {
   width: auto;
 }
 
+.navbar-transparent {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  color: #000000;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  color: white;
+}
+
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
